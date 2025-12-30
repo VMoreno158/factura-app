@@ -1,0 +1,95 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="title-buttons-row">
+        <ion-col>
+          <ion-title>Mis facturas</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-buttons>
+            <ion-button (click)="toggleSearchBar()" class="search-btn" [class.active]="showSearchBar">
+              <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+            <ion-button>
+              <ion-icon slot="icon-only" name="filter"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+      @if(showSearchBar) {
+      <ion-row>
+        <ion-searchbar [value]="searchInputText" placeholder="Buscar factura" animated="true" (ionInput)="searchInvoices($event)"></ion-searchbar>
+      </ion-row>
+      }
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list lines="none">
+    @for(invoice of results; track invoice.id){
+    <ion-card button>
+      <ion-card-header>
+        <ion-grid class="ion-no-padding ion-no-margin">
+          <ion-row>
+            <ion-col size="auto" class="ion-margin-end">
+              <ion-avatar>
+                <ion-icon name="document-text-outline"></ion-icon>
+              </ion-avatar>
+            </ion-col>
+            <ion-col class="ion-padding-end">
+              <ion-card-title>{{invoice.concept}}</ion-card-title>
+              <ion-card-subtitle>{{invoice.recipient}}</ion-card-subtitle>
+              <ion-text color="medium" class="date">
+                {{invoice.date | date:'MMMM yyyy'}}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-header>
+
+      <hr>
+
+      <ion-card-content class="ion-text-end">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="fixed">
+              <ion-label class="status-label" [attr.data-status]="invoice.status">
+                <ion-icon name="ellipse"></ion-icon>
+                {{invoice.status === 'paid' ? 'Pagada' : invoice.status === 'pending' ? 'Pendiente' : 'Borrador'}}
+              </ion-label>
+            </ion-col>
+            <ion-col size="fixed">
+              <ion-label class="type-label" [attr.data-direction]="invoice.direction">
+                @if(invoice.direction === 'issued'){
+                <ion-icon name="arrow-down-sharp"></ion-icon>
+                }
+                @else if(invoice.direction === 'received'){
+                <ion-icon name="arrow-up-sharp"></ion-icon>
+                }
+                {{invoice.direction === 'issued' ? 'Recibida' : invoice.direction === 'received' ? 'Emitida' : 'null'}}
+              </ion-label>
+            </ion-col>
+            <ion-col class="amount-col">
+              <ion-text color="dark" class="amount">
+                {{invoice.amount | currency:'EUR'}}
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-card-content>
+    </ion-card>
+    }
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)" #infiniteScroll>
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" class="ion-margin">
+    <ion-fab-button (click)="openInvoiceModal()">
+      <ion-icon name="add-sharp"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

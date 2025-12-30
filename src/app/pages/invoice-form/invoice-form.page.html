@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="close-btn" (click)="close()">✕</ion-button>
+    </ion-buttons>
+    <ion-title>Nueva factura</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="save-btn" (click)="submit()">Guardar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [formGroup]="invoiceForm" (ngSubmit)="submit()">
+  <ion-input inputmode="text" label="Concepto" label-placement="floating" fill="outline" placeholder="Ej.: Factura luz"
+    formControlName="concept"></ion-input>
+  @if(getError('concept')){
+  <ion-note color="danger">{{getError('concept')}}</ion-note>
+  }
+  <ion-input label="Destinatario" label-placement="floating" fill="outline" placeholder="Ej.: Iberdrola"
+    formControlName="recipient"></ion-input>
+  @if(getError('recipient')){
+  <ion-note color="danger">{{getError('recipient')}}</ion-note>
+  }
+  <ion-grid class="ion-no-padding">
+    <ion-row class="date-amount-row">
+      <ion-col>
+        <ion-input inputmode="date" type="date" label="Fecha" labelPlacement="floating" fill="outline" formControlName="date"></ion-input>
+         @if(getError('date')){
+        <ion-note color="danger">{{getError('date')}}</ion-note>
+      }
+      </ion-col>
+     
+      <ion-col>
+        <ion-input inputmode="decimal" type="number" label="Importe" label-placement="floating" fill="outline"
+          placeholder="Ej.: 69.99" formControlName="amount"></ion-input>
+        @if(getError('amount')){
+        <ion-note color="danger">{{getError('amount')}}</ion-note>
+        }
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

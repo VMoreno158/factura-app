@@ -1,0 +1,31 @@
+ion-header {
+
+    ion-toolbar {
+        --background: white;
+        --padding-start: 10px;
+        --padding-end: 10px;
+
+        .close-btn {
+            font-size: larger;
+        }
+
+        .save-btn {
+            --color: #3881ff;
+        }
+    }
+}
+
+ion-content {
+    --padding-start: 30px;
+    --padding-end: 30px;
+    --padding-top: 30px;
+
+    ion-input {
+        margin-top: 14px;
+    }
+
+    .date-amount-row {
+        display: flex;
+        gap: 12px;
+    }
+}

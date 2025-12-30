@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "concept": "Electricity Bill",
+    "recipient": "Juan Perez",
+    "amount": 85.5,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-01-15",
+    "status": "paid"
+  },
+  {
+    "id": 2,
+    "concept": "Professional Services Invoice",
+    "recipient": "ABC Company S.A.",
+    "amount": 1200,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-02-10",
+    "status": "pending"
+  },
+  {
+    "id": 3,
+    "concept": "Gym Membership Invoice",
+    "recipient": "Juan Perez",
+    "amount": 45.99,
+    "type": "leisure",
+    "direction": "received",
+    "date": "2025-03-05",
+    "status": "paid"
+  },
+  {
+    "id": 4,
+    "concept": "Internet Bill",
+    "recipient": "Maria Lopez",
+    "amount": 60,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-04-20",
+    "status": "pending"
+  },
+  {
+    "id": 5,
+    "concept": "Business Dinner Invoice",
+    "recipient": "XYZ Company S.L.",
+    "amount": 320.75,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-05-12",
+    "status": "paid"
+  },
+  {
+    "id": 6,
+    "concept": "Water Bill",
+    "recipient": "Juan Perez",
+    "amount": 30.4,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-01-22",
+    "status": "pending"
+  },
+  {
+    "id": 7,
+    "concept": "Consulting Services Invoice",
+    "recipient": "TechCorp",
+    "amount": 1500,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-02-18",
+    "status": "paid"
+  },
+  {
+    "id": 8,
+    "concept": "Movie Subscription",
+    "recipient": "Juan Perez",
+    "amount": 12.99,
+    "type": "leisure",
+    "direction": "received",
+    "date": "2025-03-10",
+    "status": "pending"
+  },
+  {
+    "id": 9,
+    "concept": "Gas Bill",
+    "recipient": "Maria Lopez",
+    "amount": 50.25,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-04-25",
+    "status": "paid"
+  },
+  {
+    "id": 10,
+    "concept": "Client Lunch",
+    "recipient": "XYZ Company S.L.",
+    "amount": 200,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-05-18",
+    "status": "pending"
+  },
+  {
+    "id": 11,
+    "concept": "Internet Bill",
+    "recipient": "Juan Perez",
+    "amount": 60,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-06-01",
+    "status": "paid"
+  },
+  {
+    "id": 12,
+    "concept": "Team Building Event",
+    "recipient": "TechCorp",
+    "amount": 450.5,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-06-10",
+    "status": "paid"
+  },
+  {
+    "id": 13,
+    "concept": "Yoga Membership",
+    "recipient": "Maria Lopez",
+    "amount": 35,
+    "type": "leisure",
+    "direction": "received",
+    "date": "2025-07-05",
+    "status": "pending"
+  },
+  {
+    "id": 14,
+    "concept": "Electricity Bill",
+    "recipient": "Juan Perez",
+    "amount": 88.75,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-07-15",
+    "status": "paid"
+  },
+  {
+    "id": 15,
+    "concept": "Professional Services Invoice",
+    "recipient": "ABC Company S.A.",
+    "amount": 1350,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-08-10",
+    "status": "pending"
+  },
+  {
+    "id": 16,
+    "concept": "Gym Membership Invoice",
+    "recipient": "Juan Perez",
+    "amount": 45.99,
+    "type": "leisure",
+    "direction": "received",
+    "date": "2025-08-20",
+    "status": "paid"
+  },
+  {
+    "id": 17,
+    "concept": "Water Bill",
+    "recipient": "Maria Lopez",
+    "amount": 32.1,
+    "type": "home",
+    "direction": "received",
+    "date": "2025-09-02",
+    "status": "pending"
+  },
+  {
+    "id": 18,
+    "concept": "Consulting Services Invoice",
+    "recipient": "TechCorp",
+    "amount": 1600,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-09-12",
+    "status": "paid"
+  },
+  {
+    "id": 19,
+    "concept": "Cinema Tickets",
+    "recipient": "Juan Perez",
+    "amount": 25.5,
+    "type": "leisure",
+    "direction": "received",
+    "date": "2025-10-05",
+    "status": "pending"
+  },
+  {
+    "id": 20,
+    "concept": "Business Dinner Invoice",
+    "recipient": "XYZ Company S.L.",
+    "amount": 330,
+    "type": "work",
+    "direction": "issued",
+    "date": "2025-10-18",
+    "status": "paid"
+  }
+]
