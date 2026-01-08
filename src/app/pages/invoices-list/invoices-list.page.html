@@ -18,7 +18,7 @@
       </ion-row>
       @if(showSearchBar) {
       <ion-row>
-        <ion-searchbar [value]="searchInputText" placeholder="Buscar factura" animated="true" (ionInput)="searchInvoices($event)"></ion-searchbar>
+        <ion-searchbar #searchBar [value]="searchInputText" placeholder="Buscar factura" animated="true" (ionInput)="searchInvoices()"></ion-searchbar>
       </ion-row>
       }
     </ion-grid>
@@ -82,7 +82,7 @@
     </ion-card>
     }
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)" #infiniteScroll>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite()" #infiniteScroll>
     <ion-infinite-scroll-content loadingSpinner="bubbles">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>

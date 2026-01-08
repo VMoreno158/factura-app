@@ -1,13 +1,15 @@
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ModalController, IonInfiniteScroll } from '@ionic/angular';
+import { IonicModule, ModalController, IonInfiniteScroll, IonSearchbar } from '@ionic/angular';
 
 import { addIcons } from 'ionicons';
 import { documentTextOutline, ellipse, addSharp, filter, search, arrowDownSharp, arrowUpSharp, infinite } from 'ionicons/icons';
 
 import { InvoiceService } from '../../services/invoice-service';
 import { InvoiceFormPage } from '../invoice-form/invoice-form.page';
+import { environment } from 'src/environments/environment.prod';
+import { ApiResponse } from 'src/app/models/api-response';
 
 @Component({
   selector: 'app-invoices-list',
@@ -21,13 +23,15 @@ export class InvoicesListPage implements OnInit {
   modalCtrl = inject(ModalController)
 
   @ViewChild('infiniteScroll') infiniteScroll!: IonInfiniteScroll
+  @ViewChild('searchBar') searchBar!: IonSearchbar
+
 
   invoiceList: any = []
   filteredInvoiceList: any = []
   component = InvoiceFormPage
 
   showSearchBar: boolean = false
-  searchInputText:string = ''
+  searchInputText: string = ''
 
   page = 0
   pageSize = 8
@@ -42,39 +46,42 @@ export class InvoicesListPage implements OnInit {
     this.showSearchBar = !this.showSearchBar
 
     if (!this.showSearchBar) {
-    this.loadInvoices()
-    console.log('cerrar busqueda')
-  } else {
-    this.filteredInvoiceList = this.filterInvoices(this.searchInputText)
-    this.resetPagination()
-    console.log('abrir busqueda')
-  }
+      this.loadInvoices()
+      if(!environment.production) console.log('Close SearchBar')
+    } else {
+      this.filteredInvoiceList = this.filterInvoices(this.searchInputText)
+      this.resetPagination()
+      if(!environment.production) console.log('Open SearchBar')
+    }
   }
 
   loadInvoices() {
-    this.invoiceService.getAll().subscribe((data: any) => {
-      this.invoiceList = data
-      this.filteredInvoiceList = [...this.invoiceList]
+    this.invoiceService.getInvoices().then(
+      (response: ApiResponse) => {
+        this.invoiceList = response.data
+        this.filteredInvoiceList = [...this.invoiceList]
+        if(!environment.production) console.log(this.filteredInvoiceList)
 
-      this.resetPagination()
-    })
+        this.resetPagination()
+      }
+    )
   }
 
-  searchInvoices(event: Event) {
-    const target = event?.target as HTMLIonSearchbarElement;
-    this.searchInputText = target.value?.toLowerCase() || '';
+  searchInvoices() {
+    if(this.searchBar && !environment.production) console.log('SearchBar target. Value: ' + this.searchBar.value)
+    this.searchInputText = this.searchBar.value?.toLowerCase() || ''
 
     this.filteredInvoiceList = this.filterInvoices(this.searchInputText)
     this.resetPagination()
-    
+
   }
 
   filterInvoices(query: string) {
     if (!query.trim()) {
-    return this.invoiceList
+      return this.invoiceList
     } else {
       return this.invoiceList.filter((invoice: any) => {
-          return invoice.concept.toLowerCase().includes(query) ||
+        return invoice.concept.toLowerCase().includes(query) ||
           invoice.recipient.toLowerCase().includes(query)
       })
     }
@@ -97,21 +104,21 @@ export class InvoicesListPage implements OnInit {
     this.page = 0
     this.loadNextPage()
 
-    if(this.infiniteScroll){
+    if (this.infiniteScroll) {
       this.infiniteScroll.disabled = false
       this.infiniteScroll.complete()
-      console.log('habilitando scroll')
-    } 
+      if(!environment.production) console.log('Scroll Enabled!')
+    }
   }
 
-  onIonInfinite(event: any) {
+  onIonInfinite() {
     this.loadNextPage()
 
     setTimeout(() => {
-      event.target.complete()
+      this.infiniteScroll.complete()
 
       if (this.results.length >= this.filteredInvoiceList.length) {
-        event.target.disabled = true
+        this.infiniteScroll.disabled = true
       }
     }, 0)
   }

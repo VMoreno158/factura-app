@@ -1,5 +1,7 @@
 {
   "name": "factura-app",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular-standalone"
 }

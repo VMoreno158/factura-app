@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonApp, IonRouterOutlet} from '@ionic/angular/standalone';
+import { DatabaseService } from './services/database-service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,18 @@ import { IonApp, IonRouterOutlet} from '@ionic/angular/standalone';
   imports: [IonRouterOutlet, IonApp],
 })
 export class AppComponent {
-  constructor() {}
+  dbService = inject(DatabaseService)
+
+  constructor() {
+   this.initApp()
+  }
+
+  async initApp() {
+    try {
+      await this.dbService.initializeDatabase();
+      await this.dbService.seedDatabase();
+    } catch (error) {
+      console.error('Error inicializando la base de datos:', error);
+    }
+  }
 }
