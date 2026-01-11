@@ -39,9 +39,9 @@
             </ion-col>
             <ion-col class="ion-padding-end">
               <ion-card-title>{{invoice.concept}}</ion-card-title>
-              <ion-card-subtitle>{{invoice.recipient}}</ion-card-subtitle>
+              <ion-card-subtitle>{{invoice.issuer.name}}</ion-card-subtitle>
               <ion-text color="medium" class="date">
-                {{invoice.date | date:'MMMM yyyy'}}
+                {{invoice.issueDate | date:'MMMM yyyy'}}
               </ion-text>
             </ion-col>
           </ion-row>
@@ -59,20 +59,9 @@
                 {{invoice.status === 'paid' ? 'Pagada' : invoice.status === 'pending' ? 'Pendiente' : 'Borrador'}}
               </ion-label>
             </ion-col>
-            <ion-col size="fixed">
-              <ion-label class="type-label" [attr.data-direction]="invoice.direction">
-                @if(invoice.direction === 'issued'){
-                <ion-icon name="arrow-down-sharp"></ion-icon>
-                }
-                @else if(invoice.direction === 'received'){
-                <ion-icon name="arrow-up-sharp"></ion-icon>
-                }
-                {{invoice.direction === 'issued' ? 'Recibida' : invoice.direction === 'received' ? 'Emitida' : 'null'}}
-              </ion-label>
-            </ion-col>
             <ion-col class="amount-col">
-              <ion-text color="dark" class="amount">
-                {{invoice.amount | currency:'EUR'}}
+              <ion-text class="amount">
+                {{invoice.total | currency:'EUR'}}
               </ion-text>
             </ion-col>
           </ion-row>

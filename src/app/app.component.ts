@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { IonApp, IonRouterOutlet} from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { DatabaseService } from './services/database-service';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,24 @@ import { DatabaseService } from './services/database-service';
 export class AppComponent {
   dbService = inject(DatabaseService)
 
+  // USAR ESTO EN EL GRADLE DE ANDROID PARA CARGAR LA VERSION 17 DE JAVA DE CAPACITOR DEBAJO DE: apply from: "variables.gradle"
+  /* 
+  subprojects { subproject ->
+    afterEvaluate {
+        if (subproject.hasProperty("android")) {
+            android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+            }
+        }
+    }
+}
+  */
+
   constructor() {
-   this.initApp()
+    if (environment.production) this.initApp()
   }
 
   async initApp() {

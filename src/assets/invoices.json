@@ -1,202 +1,242 @@
 [
   {
     "id": 1,
-    "concept": "Electricity Bill",
-    "recipient": "Juan Perez",
-    "amount": 85.5,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-01-15",
-    "status": "paid"
+    "concept": "Diseño de página web",
+    "issueDate": "2026-01-01T00:00:00.000Z",
+    "dueDate": "2026-01-15T00:00:00.000Z",
+    "subtotal": 1000,
+    "taxes": 160,
+    "total": 1160,
+    "status": "pending",
+    "paymentMethod": "Transferencia bancaria",
+    "notes": "Pago antes de la fecha de vencimiento",
+    "items": [
+      {
+        "id": 1,
+        "invoiceId": 1,
+        "name": "Diseño de interfaz",
+        "description": "Creación de la interfaz visual",
+        "quantity": 1,
+        "unitPrice": 700,
+        "subtotal": 700,
+        "tax": 112,
+        "discount": 0
+      },
+      {
+        "id": 2,
+        "invoiceId": 1,
+        "name": "Desarrollo front-end",
+        "description": "Programación de la parte visual",
+        "quantity": 1,
+        "unitPrice": 300,
+        "subtotal": 300,
+        "tax": 48,
+        "discount": 0
+      }
+    ],
+    "issuer": {
+      "name": "Agencia Creativa S.A.",
+      "email": "facturacion@agenciacreativa.com",
+      "phone": "+34123456789",
+      "address": "Calle Falsa 123, Madrid, España"
+    },
+    "client": {
+      "name": "Empresa XYZ",
+      "email": "contacto@empresaxyz.com",
+      "phone": "+34111222333",
+      "address": "Avenida Siempre Viva 456, Barcelona, España"
+    }
   },
   {
     "id": 2,
-    "concept": "Professional Services Invoice",
-    "recipient": "ABC Company S.A.",
-    "amount": 1200,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-02-10",
-    "status": "pending"
+    "concept": "Consultoría SEO",
+    "issueDate": "2026-01-03T00:00:00.000Z",
+    "dueDate": "2026-01-17T00:00:00.000Z",
+    "subtotal": 500,
+    "taxes": 80,
+    "total": 580,
+    "status": "paid",
+    "paymentMethod": "Tarjeta de crédito",
+    "notes": "Pago recibido correctamente",
+    "items": [
+      {
+        "id": 3,
+        "invoiceId": 2,
+        "name": "Auditoría SEO",
+        "description": "Revisión completa del sitio",
+        "quantity": 1,
+        "unitPrice": 300,
+        "subtotal": 300,
+        "tax": 48,
+        "discount": 0
+      },
+      {
+        "id": 4,
+        "invoiceId": 2,
+        "name": "Optimización de contenido",
+        "description": "Mejora de textos y keywords",
+        "quantity": 1,
+        "unitPrice": 200,
+        "subtotal": 200,
+        "tax": 32,
+        "discount": 0
+      }
+    ],
+    "issuer": {
+      "name": "Consultores SEO S.L.",
+      "email": "facturas@consultoresseo.com",
+      "phone": "+34987654321",
+      "address": "Calle de la Luna 45, Madrid, España"
+    },
+    "client": {
+      "name": "Startup ABC",
+      "email": "info@startupabc.com",
+      "phone": "+34999888777",
+      "address": "Calle Sol 89, Valencia, España"
+    }
   },
   {
     "id": 3,
-    "concept": "Gym Membership Invoice",
-    "recipient": "Juan Perez",
-    "amount": 45.99,
-    "type": "leisure",
-    "direction": "received",
-    "date": "2025-03-05",
-    "status": "paid"
+    "concept": "Mantenimiento de servidores",
+    "issueDate": "2026-01-05T00:00:00.000Z",
+    "dueDate": "2026-01-20T00:00:00.000Z",
+    "subtotal": 750,
+    "taxes": 120,
+    "total": 870,
+    "status": "pending",
+    "paymentMethod": "PayPal",
+    "notes": "Pago pendiente de confirmación",
+    "items": [
+      {
+        "id": 5,
+        "invoiceId": 3,
+        "name": "Revisión de servidores",
+        "description": "Chequeo de hardware y software",
+        "quantity": 2,
+        "unitPrice": 250,
+        "subtotal": 500,
+        "tax": 80,
+        "discount": 0
+      },
+      {
+        "id": 6,
+        "invoiceId": 3,
+        "name": "Actualización de software",
+        "description": "Instalación de parches y updates",
+        "quantity": 1,
+        "unitPrice": 250,
+        "subtotal": 250,
+        "tax": 40,
+        "discount": 0
+      }
+    ],
+    "issuer": {
+      "name": "IT Solutions",
+      "email": "billing@itsolutions.com",
+      "phone": "+34900112233",
+      "address": "Calle Tecnología 12, Madrid, España"
+    },
+    "client": {
+      "name": "Empresa DEF",
+      "email": "contact@empresadef.com",
+      "phone": "+34988776655",
+      "address": "Calle Industria 23, Sevilla, España"
+    }
   },
   {
     "id": 4,
-    "concept": "Internet Bill",
-    "recipient": "Maria Lopez",
-    "amount": 60,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-04-20",
-    "status": "pending"
+    "concept": "Redacción de contenido",
+    "issueDate": "2026-01-06T00:00:00.000Z",
+    "dueDate": "2026-01-21T00:00:00.000Z",
+    "subtotal": 400,
+    "taxes": 64,
+    "total": 464,
+    "status": "cancelled",
+    "paymentMethod": "Transferencia bancaria",
+    "notes": "Cliente canceló el pedido",
+    "items": [
+      {
+        "id": 7,
+        "invoiceId": 4,
+        "name": "Artículos para blog",
+        "description": "Redacción de 4 artículos",
+        "quantity": 4,
+        "unitPrice": 100,
+        "subtotal": 400,
+        "tax": 64,
+        "discount": 0
+      }
+    ],
+    "issuer": {
+      "name": "Redactores Unidos",
+      "email": "contacto@redactores.com",
+      "phone": "+34123455678",
+      "address": "Calle Letras 10, Madrid, España"
+    },
+    "client": {
+      "name": "Portal Noticias",
+      "email": "info@portalnoticias.com",
+      "phone": "+34112233445",
+      "address": "Calle Información 5, Valencia, España"
+    }
   },
   {
     "id": 5,
-    "concept": "Business Dinner Invoice",
-    "recipient": "XYZ Company S.L.",
-    "amount": 320.75,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-05-12",
-    "status": "paid"
-  },
-  {
-    "id": 6,
-    "concept": "Water Bill",
-    "recipient": "Juan Perez",
-    "amount": 30.4,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-01-22",
-    "status": "pending"
-  },
-  {
-    "id": 7,
-    "concept": "Consulting Services Invoice",
-    "recipient": "TechCorp",
-    "amount": 1500,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-02-18",
-    "status": "paid"
-  },
-  {
-    "id": 8,
-    "concept": "Movie Subscription",
-    "recipient": "Juan Perez",
-    "amount": 12.99,
-    "type": "leisure",
-    "direction": "received",
-    "date": "2025-03-10",
-    "status": "pending"
-  },
-  {
-    "id": 9,
-    "concept": "Gas Bill",
-    "recipient": "Maria Lopez",
-    "amount": 50.25,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-04-25",
-    "status": "paid"
-  },
-  {
-    "id": 10,
-    "concept": "Client Lunch",
-    "recipient": "XYZ Company S.L.",
-    "amount": 200,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-05-18",
-    "status": "pending"
-  },
-  {
-    "id": 11,
-    "concept": "Internet Bill",
-    "recipient": "Juan Perez",
-    "amount": 60,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-06-01",
-    "status": "paid"
-  },
-  {
-    "id": 12,
-    "concept": "Team Building Event",
-    "recipient": "TechCorp",
-    "amount": 450.5,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-06-10",
-    "status": "paid"
-  },
-  {
-    "id": 13,
-    "concept": "Yoga Membership",
-    "recipient": "Maria Lopez",
-    "amount": 35,
-    "type": "leisure",
-    "direction": "received",
-    "date": "2025-07-05",
-    "status": "pending"
-  },
-  {
-    "id": 14,
-    "concept": "Electricity Bill",
-    "recipient": "Juan Perez",
-    "amount": 88.75,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-07-15",
-    "status": "paid"
-  },
-  {
-    "id": 15,
-    "concept": "Professional Services Invoice",
-    "recipient": "ABC Company S.A.",
-    "amount": 1350,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-08-10",
-    "status": "pending"
-  },
-  {
-    "id": 16,
-    "concept": "Gym Membership Invoice",
-    "recipient": "Juan Perez",
-    "amount": 45.99,
-    "type": "leisure",
-    "direction": "received",
-    "date": "2025-08-20",
-    "status": "paid"
-  },
-  {
-    "id": 17,
-    "concept": "Water Bill",
-    "recipient": "Maria Lopez",
-    "amount": 32.1,
-    "type": "home",
-    "direction": "received",
-    "date": "2025-09-02",
-    "status": "pending"
-  },
-  {
-    "id": 18,
-    "concept": "Consulting Services Invoice",
-    "recipient": "TechCorp",
-    "amount": 1600,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-09-12",
-    "status": "paid"
-  },
-  {
-    "id": 19,
-    "concept": "Cinema Tickets",
-    "recipient": "Juan Perez",
-    "amount": 25.5,
-    "type": "leisure",
-    "direction": "received",
-    "date": "2025-10-05",
-    "status": "pending"
-  },
-  {
-    "id": 20,
-    "concept": "Business Dinner Invoice",
-    "recipient": "XYZ Company S.L.",
-    "amount": 330,
-    "type": "work",
-    "direction": "issued",
-    "date": "2025-10-18",
-    "status": "paid"
+    "concept": "Desarrollo de app móvil",
+    "issueDate": "2026-01-07T00:00:00.000Z",
+    "dueDate": "2026-01-22T00:00:00.000Z",
+    "subtotal": 2000,
+    "taxes": 320,
+    "total": 2320,
+    "status": "pending",
+    "paymentMethod": "Tarjeta de crédito",
+    "notes": "Primer pago pendiente",
+    "items": [
+      {
+        "id": 8,
+        "invoiceId": 5,
+        "name": "Diseño UI/UX",
+        "description": "Diseño de la interfaz móvil",
+        "quantity": 1,
+        "unitPrice": 800,
+        "subtotal": 800,
+        "tax": 128,
+        "discount": 0
+      },
+      {
+        "id": 9,
+        "invoiceId": 5,
+        "name": "Desarrollo iOS",
+        "description": "Programación de la app iOS",
+        "quantity": 1,
+        "unitPrice": 600,
+        "subtotal": 600,
+        "tax": 96,
+        "discount": 0
+      },
+      {
+        "id": 10,
+        "invoiceId": 5,
+        "name": "Desarrollo Android",
+        "description": "Programación de la app Android",
+        "quantity": 1,
+        "unitPrice": 600,
+        "subtotal": 600,
+        "tax": 96,
+        "discount": 0
+      }
+    ],
+    "issuer": {
+      "name": "App Creators",
+      "email": "facturacion@appcreators.com",
+      "phone": "+34999887766",
+      "address": "Calle Digital 33, Barcelona, España"
+    },
+    "client": {
+      "name": "Startup Mobile",
+      "email": "contact@startupmobile.com",
+      "phone": "+34988775544",
+      "address": "Calle Movil 77, Madrid, España"
+    }
   }
 ]

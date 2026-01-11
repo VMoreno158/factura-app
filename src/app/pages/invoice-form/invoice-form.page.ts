@@ -2,38 +2,39 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IonicModule, ModalController } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonInput, IonNote, IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-invoice-form',
   templateUrl: './invoice-form.page.html',
   styleUrls: ['./invoice-form.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, ReactiveFormsModule]
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, IonHeader, IonToolbar, IonButtons, IonButton, IonTitle, IonContent, IonInput, IonNote, IonGrid, IonRow, IonCol]
 })
 export class InvoiceFormPage implements OnInit {
   modalCtrl = inject(ModalController)
   fb = inject(FormBuilder)
 
   invoice: any = {}
-  invoiceForm!: FormGroup 
-  
+  invoiceForm!: FormGroup
+
   errorMessages: Record<string, any> = {
-  concept: {
-    required: 'El concepto es obligatorio',
-    minlength: 'Demasiado corto'
-  },
-  recipient: {
-    required: 'El emisor/receptor es obligatorio'
-  },
-  amount: {
-    required: 'El importe es obligatorio',
-    min: 'Importe demasiado bajo',
-    pattern: 'Máximo 2 decimales'
-  }, 
-  date: {
-    required: 'La fecha es obligatoria'
-  }
-};
+    concept: {
+      required: 'El concepto es obligatorio',
+      minlength: 'Demasiado corto. Minimo 3 caracteres'
+    },
+    recipient: {
+      required: 'El emisor/receptor es obligatorio'
+    },
+    amount: {
+      required: 'El importe es obligatorio',
+      min: 'Importe demasiado bajo. Minimo 0.1',
+      pattern: 'Máximo 2 decimales'
+    },
+    date: {
+      required: 'La fecha es obligatoria'
+    }
+  };
 
 
   ngOnInit() {
@@ -56,7 +57,7 @@ export class InvoiceFormPage implements OnInit {
   }
 
   submit() {
-    if(this.invoiceForm.invalid){
+    if (this.invoiceForm.invalid) {
       this.invoiceForm.markAllAsTouched()
       return
     }
@@ -64,11 +65,11 @@ export class InvoiceFormPage implements OnInit {
     console.log('Factura añadida:', this.invoiceForm.value)
   }
 
-  getError(controlName:string): string | null{
+  getError(controlName: string): string | null {
     const control = this.invoiceForm.get(controlName)
 
-    if(!control || control.untouched || !control.errors) return null
-    
+    if (!control || control.untouched || !control.errors) return null
+
     const errors = this.errorMessages[controlName]
     const firstErrorKey = Object.keys(control.errors)[0]
 
